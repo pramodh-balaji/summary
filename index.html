@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Summarizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>WELCOME TO THE WORLD OF SUMMARY</h1>
+  <p>Upload your video (mp4 format only):</p>
+  <input type="file" id="video-upload" accept=".mp4">
+  <p id="transcript-label"></p>
+  <pre id="transcript"></pre>
+  <button onclick="summarizeTranscript()">Summarize</button>
+  <p id="summary"></p>
+  <h2>Discussion Forum:</h2>
+  <div id="comments">
+  </div>
+  <form id="comment-form">
+    <label for="comment">Add your comment:</label>
+    <textarea id="comment" rows="5"></textarea>
+    <button type="submit">Post Comment</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>

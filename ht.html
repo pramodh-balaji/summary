@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Summary Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #videoContainer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        video {
+            max-width: 100%;
+        }
+
+        #summary {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="videoContainer">
+        <label for="video">Upload Video:</label>
+        <input type="file" id="video" accept="video/*">
+        <br>
+        <video id="uploadedVideo" controls></video>
+    </div>
+
+    <div id="summary"></div>
+
+    <script>
+        document.getElementById('video').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const videoSrc = event.target.result;
+                document.getElementById('uploadedVideo').src = videoSrc;
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        function generateSummary() {
+            const video = document.getElementById('uploadedVideo');
+            const videoDuration = video.duration;
+            const summary = `Video Duration: ${videoDuration.toFixed(2)} seconds`;
+            document.getElementById('summary').innerText = summary;
+        }
+    </script>
+</body>
+
+</html>
